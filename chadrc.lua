@@ -8,8 +8,8 @@ M.ui = {
   theme = "everforest",
   theme_toggle = { "everforest", "one_light" },
 
-  hl_override = highlights.override,
-  hl_add = highlights.add,
+  -- hl_override = highlights.override,
+  -- hl_add = highlights.add,
 }
 
 M.plugins = "custom.plugins"

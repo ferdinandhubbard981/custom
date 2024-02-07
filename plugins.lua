@@ -76,6 +76,28 @@ local plugins = {
     end,
   },
 
+  {
+    "sindrets/diffview.nvim",
+    lazy = false,
+    config = function()
+      local actions = require("diffview.actions")
+      require("diffview").setup({
+        -- Configuration options here
+        diff_binaries = false,    -- Show diffs for binaries
+        enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
+        -- Add more configuration options as per your need
+        -- ...
+      })
+    end,
+  },
+
+  -- {
+  --   'mrcjkb/rustaceanvim',
+  --   version = '^3', -- Recommended
+  --   ft = { 'rust' },
+  -- }
+
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

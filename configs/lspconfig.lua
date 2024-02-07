@@ -3,7 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "html", "cssls", "tsserver", "clangd" }
+local servers = { "html", "cssls", "tsserver", "clangd"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -11,6 +11,17 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.rust_analyzer.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    -- check = {
+      -- overrideCommand = { "cargo", "3ds", "clippy", "--message-format=json-diagnostic-rendered-ansi", "--all-targets", "--all-features" },
+    -- },
+    cargo = {
+      target = "horizon",
+  },
+}
 
 -- Custom configuration for pylsp
 lspconfig.pylsp.setup {
