@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,18 +25,18 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        -- defaults 
+        -- defaults
         "vim",
         "lua",
 
-        -- web dev 
+        -- web dev
         "html",
         "css",
         "javascript",
@@ -45,11 +45,11 @@ local plugins = {
         "json",
         -- "vue", "svelte",
 
-       -- low level
+        -- low level
         "bash",
         "cpp",
         "c",
-        "zig"
+        "zig",
       },
     },
   },
@@ -75,28 +75,6 @@ local plugins = {
       vim.fn["mkdp#util#install"]()
     end,
   },
-
-  {
-    "sindrets/diffview.nvim",
-    lazy = false,
-    config = function()
-      local actions = require("diffview.actions")
-      require("diffview").setup({
-        -- Configuration options here
-        diff_binaries = false,    -- Show diffs for binaries
-        enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
-        -- Add more configuration options as per your need
-        -- ...
-      })
-    end,
-  },
-
-  -- {
-  --   'mrcjkb/rustaceanvim',
-  --   version = '^3', -- Recommended
-  --   ft = { 'rust' },
-  -- }
-
 
   -- To make a plugin not be loaded
   -- {
